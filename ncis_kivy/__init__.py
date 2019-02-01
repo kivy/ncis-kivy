@@ -6,7 +6,7 @@ __author__ = 'Gabriel Pettier <gabriel@kivy.org>'
 
 
 @route('/version')
-def version():
+def kivy_version():
     return api_response({
         'version': kivy.__version__,
     })
@@ -25,7 +25,7 @@ def _tree(root):
     return res
 
 
-@route('/inspect/<wid>', method='GET')
+@route('/inspect/<wid>')
 def inspect(wid):
     wid = int(wid)
     w = ncis_weakrefs.get(wid)
