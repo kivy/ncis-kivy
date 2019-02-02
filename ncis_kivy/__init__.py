@@ -42,7 +42,12 @@ def inspect(wid):
     if w is None:
         return api_response(None)
 
-    return api_response(w.properties())
+    props = {
+        key: {'value': getattr(w, key)}
+        for key in w.properties()
+    }
+
+    return api_response(props)
 
 
 screenstream_ctx = {
